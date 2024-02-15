@@ -30,9 +30,9 @@ class Books {
 }
 
 class Book {
-    public $title;
-    public $author;
-    public $year;
+    public string $title;
+    public string $author;
+    public string $year;
 
     public function __construct(string $title, string $author, string $year) {
         $this->title = $title;

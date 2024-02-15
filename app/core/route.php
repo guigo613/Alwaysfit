@@ -10,7 +10,7 @@ $routes = array(
     'logout' => array('controller' => 'loginController', 'action' => 'logout')
 );
 
-function route($routes) {
+function route(array $routes) {
     $route = isset($_GET['route']) ? $_GET['route'] : 'login';
 
     if (array_key_exists($route, $routes)) {
