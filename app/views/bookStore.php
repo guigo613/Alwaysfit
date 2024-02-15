@@ -29,7 +29,7 @@
             }
             echo "</div>";
             
-            echo "<table class='table table-striped'>";
+            echo "<div class='table-container'><table class='table table-striped'>";
             echo 
                 "<thead>
                     <tr>
@@ -61,7 +61,7 @@
                 }
                 echo "</tr>";
             }
-            echo "</tbody></table>";
+            echo "</tbody></table></div>";
 
             
             if ($permission)

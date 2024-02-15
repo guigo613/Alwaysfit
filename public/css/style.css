@@ -11,6 +11,7 @@
     margin: auto;
 }
 
-table {
+.table-container {
     max-height: 75vh;
+    overflow: auto;
 }
