@@ -22,7 +22,7 @@ function route($routes) {
         $controller = new $controllerName();
         $controller->$actionName();
     } else {
-        header('Location: index.php?route=login');
-        exit();
+        header('Location: ?route=login');
+        exit;
     }
 }
