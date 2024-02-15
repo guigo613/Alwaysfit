@@ -1,7 +1,7 @@
 <?php
 
 class UserModel {
-    public static function authenticate($username, $password) {
+    public static function authenticate(string $username, string $password) : bool {
         $valid_username = 'usuario';
         $valid_password = 'senha123';
 
