@@ -15,6 +15,7 @@
 
             echo "<div class='row'>";
             echo "<div class='col'><h1>Lista de Livros</h1></div>";
+            echo "<div class='col'><input class='form-control' id='search' placeholder='Buscar...'></div>";
             if ($permission) {
                 echo 
                     "<div class='col-2 ms-auto'>
@@ -39,6 +40,7 @@
                         <th scope='col'>Ação</th>
                     </tr>
                 </thead>";
+            echo "<tbody>";
             foreach ($books->inner as $key => $book) {
                 echo 
                     "<tr>
@@ -59,7 +61,7 @@
                 }
                 echo "</tr>";
             }
-            echo "</table>";
+            echo "</tbody></table>";
 
             
             if ($permission)
@@ -82,5 +84,17 @@
             ?>
         </div>
     </div>
+    <script>
+        const search = e => {
+            let elm = Array.from(document.querySelectorAll("table tbody tr")).map(t => {
+                if (Array.from(t.querySelectorAll("td")).map(td => td.innerText).some(text => text.search(e.target.value) != -1))
+                    t.classList.remove("d-none")
+                else
+                    t.classList.add("d-none")
+            })
+        }
+
+        document.querySelector("#search").addEventListener("keyup", search)
+    </script>
 </body>
 </html>
