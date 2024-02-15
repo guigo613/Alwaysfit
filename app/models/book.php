@@ -6,10 +6,12 @@ class Books {
 
     public function __construct() {
 
-        $contents = file_get_contents($this->filename);
-        if (!$contents)
+        $contents = @file_get_contents($this->filename);
+
+        if (!$contents) {
+            mkdir("bd", 0777);
             fopen($this->filename, "c");
-        else {
+        } else {
             $this->inner = unserialize($contents);
         }
     }
