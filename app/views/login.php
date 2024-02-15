@@ -2,19 +2,29 @@
 <html>
 <head>
     <title>App de Login</title>
+    <link rel="stylesheet" href="/public/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/public/css/style.css">
 </head>
 <body>
-    <h2>Formulário de Login</h2>
-    <?php if (isset($error_message)): ?>
-        <p><?php echo $error_message; ?></p>
-    <?php endif; ?>
-    <form method="post" action="?route=authenticate">
-        <label for="username">Usuário:</label>
-        <input type="text" id="username" name="username" required><br><br>
-        <label for="password">Senha:</label>
-        <input type="password" id="password" name="password" required><br><br>
-        <button type="submit">Entrar</button>
-        <button type="button" onclick="location.search = '?route=book'" >Sem login</button>
-    </form>
+    <div class="app">
+        <div class="center-app">
+            <h2>Formulário de Login</h2>
+            <?php if (isset($error_message)): ?>
+                <p><?php echo $error_message; ?></p>
+            <?php endif; ?>
+            <form method="post" action="?route=authenticate">
+                <div class="mb-3">
+                    <label for="username" class="form-label">Usuário</label>
+                    <input required type="text" class="form-control" id="username" name="username" aria-describedby="emailHelp">
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label">Senha</label>
+                    <input required type="password" class="form-control" id="password" name="password">
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="button" class="btn btn-outline-primary" onclick="location.search = '?route=book'">Sem login</button>
+            </form>
+        </div>
+    </div>
 </body>
 </html>

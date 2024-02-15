@@ -10,3 +10,7 @@
 .center-app {
     margin: auto;
 }
+
+table {
+    max-height: 75vh;
+}
