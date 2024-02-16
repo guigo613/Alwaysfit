@@ -15,6 +15,10 @@ class UserModel {
         return $username === $this->user && $password === $this->pass ? true : false;
     }
 
+    public function username() : string {
+        return $this->user;
+    }
+
     public function is_admin() : bool {
         return $this->admin;
     }

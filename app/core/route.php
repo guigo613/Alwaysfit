@@ -6,7 +6,7 @@ $routes = array(
     'newUser' => array('controller' => 'loginController', 'action' => 'new'),
     'authenticate' => array('controller' => 'loginController', 'action' => 'authenticate'),
     'addUser' => array('controller' => 'loginController', 'action' => 'add'),
-    'remove' => array('controller' => 'loginController', 'action' => 'remove'),
+    'removeuser' => array('controller' => 'loginController', 'action' => 'remove'),
     'book' => array('controller' => 'bookStoreController', 'action' => 'index'),
     'addbook' => array('controller' => 'bookStoreController', 'action' => 'add'),
     'removebook' => array('controller' => 'bookStoreController', 'action' => 'remove'),

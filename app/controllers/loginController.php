@@ -8,6 +8,8 @@ class LoginController {
     }
 
     public function manager() {
+        $users = new Users();
+
         include 'app/views/managerUsers.php';
     }
 
