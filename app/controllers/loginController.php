@@ -33,9 +33,10 @@ class LoginController {
     public function add() {
         $username = $_POST['username'];
         $password = $_POST['password'];
+        $admin = $_POST['admin'];
         
         $books = new UserModel();
-        $books->add($username, $password);
+        $books->add($username, $password, $admin);
         $books->save();
 
         header('Location: /?route=book');

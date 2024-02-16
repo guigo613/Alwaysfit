@@ -9,7 +9,7 @@ class Books {
         $contents = @file_get_contents($this->filename);
 
         if (!$contents) {
-            mkdir("bd", 0777);
+            @mkdir("bd", 0777);
             fopen($this->filename, "c");
         } else {
             $this->inner = unserialize($contents);

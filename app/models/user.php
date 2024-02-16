@@ -3,10 +3,12 @@
 class UserModel {
     private string $user;
     private string $pass;
+    private bool $admin;
 
-    public function __construct(string $user, string $pass) {
+    public function __construct(string $user, string $pass, bool $admin) {
         $this->user = $user;
         $this->pass = $pass;
+        $this->admin = $admin;
     }
 
     public function authenticate(string $username, string $password) : bool {
@@ -22,9 +24,9 @@ class Users {
         $contents = @file_get_contents($this->filename);
 
         if (!$contents) {
-            mkdir("bd", 0777);
+            @mkdir("bd", 0777);
             fopen($this->filename, "c+");
-            $this->inner[] = new UserModel("admin", "admin");
+            $this->inner[] = new UserModel("admin", "admin", true);
             file_put_contents($this->filename, serialize($this->inner));
         } else {
             $this->inner = unserialize($contents);
@@ -42,8 +44,8 @@ class Users {
         return file_put_contents($this->filename, serialize($this->inner));
     }
 
-    function add(string $username, string $password) {
-        $this->inner[] = new UserModel("admin", "admin");
+    function add(string $username, string $password, bool $admin) {
+        $this->inner[] = new UserModel($username, $password, $admin);
     }
 
     function remove(int $key) {

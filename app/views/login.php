@@ -15,7 +15,7 @@
             <form method="post" action="?route=authenticate">
                 <div class="mb-3">
                     <label for="username" class="form-label">Usuário</label>
-                    <input required type="text" class="form-control" id="username" name="username" aria-describedby="emailHelp">
+                    <input required type="text" class="form-control" id="username" name="username">
                 </div>
                 <div class="mb-3">
                     <label for="password" class="form-label">Senha</label>
