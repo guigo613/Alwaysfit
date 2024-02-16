@@ -35,7 +35,7 @@ class LoginController {
         $password = $_POST['password'];
         $admin = $_POST['admin'];
         
-        $books = new UserModel();
+        $books = new Users();
         $books->add($username, $password, $admin);
         $books->save();
 
@@ -43,7 +43,7 @@ class LoginController {
     }
 
     public function remove() {
-        $books = new UserModel();
+        $books = new Users();
         $id = $_POST['user_id'];
         $books->remove($id);
         $books->save();
