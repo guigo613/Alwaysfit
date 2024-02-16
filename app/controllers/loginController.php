@@ -19,10 +19,12 @@ class LoginController {
         $username = $_POST['username'];
         $password = $_POST['password'];
         $users = new Users();
+        $user = $users->authenticate($username, $password);
 
-        if ($users->authenticate($username, $password)) {
+        if ($user) {
             header('Location: /?route=book');
-            $_SESSION["permission"] = true;
+            $_SESSION["admin"] = $user->is_admin();
+            $_SESSION["logged"] = true;
             exit();
         } else {
             $error_message = "Usuário ou senha inválidos.";
@@ -33,7 +35,7 @@ class LoginController {
     public function add() {
         $username = $_POST['username'];
         $password = $_POST['password'];
-        $admin = $_POST['admin'];
+        $admin = isset($_POST['admin']) ? true : false;
         
         $books = new Users();
         $books->add($username, $password, $admin);

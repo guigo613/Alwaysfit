@@ -14,6 +14,10 @@ class UserModel {
     public function authenticate(string $username, string $password) : bool {
         return $username === $this->user && $password === $this->pass ? true : false;
     }
+
+    public function is_admin() : bool {
+        return $this->admin;
+    }
 }
 
 class Users {
@@ -33,10 +37,10 @@ class Users {
         }
     }
 
-    public function authenticate(string $username, string $password) : bool {
+    public function authenticate(string $username, string $password) : UserModel|false {
         foreach ($this->inner as $user)
             if ($user->authenticate($username, $password))
-                return true;
+                return $user;
         return false;
     }
 

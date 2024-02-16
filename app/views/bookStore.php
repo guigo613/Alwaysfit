@@ -11,7 +11,8 @@
             
             <?php
 
-            $permission = in_array("permission", $_SESSION) ? $_SESSION["permission"] : false;
+            $permission = in_array("admin", $_SESSION) ? $_SESSION["admin"] : false;
+            $logged = in_array("logged", $_SESSION) ? $_SESSION["logged"] : false;
 
             echo "<div class='row'>
                     <div class='col'><h1>Lista de Livros</h1></div>
@@ -30,9 +31,11 @@
                                 </div>
                             </div>
                         </div>";
-            } else {
+            } else if ($logged)
+                echo    "<button type='button' class='btn btn-primary' onclick=\"location.search = '?route=logout'\">logout</button>";
+            else
                 echo    "<button type='button' class='btn btn-primary' onclick=\"location.search = '?route=login'\">login</button>";
-            }
+
             echo    "</div>
                 </div>";
             
