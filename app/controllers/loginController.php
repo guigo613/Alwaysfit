@@ -10,8 +10,9 @@ class LoginController {
     public function authenticate() {
         $username = $_POST['username'];
         $password = $_POST['password'];
+        $users = new Users();
 
-        if (UserModel::authenticate($username, $password)) {
+        if ($users->authenticate($username, $password)) {
             header('Location: /?route=book');
             $_SESSION["permission"] = true;
             exit();
