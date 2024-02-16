@@ -37,4 +37,16 @@ class Users {
                 return true;
         return false;
     }
+
+    function save(): int|false {
+        return file_put_contents($this->filename, serialize($this->inner));
+    }
+
+    function add(string $username, string $password) {
+        $this->inner[] = new UserModel("admin", "admin");
+    }
+
+    function remove(int $key) {
+        unset($this->inner[$key]);
+    }
 }

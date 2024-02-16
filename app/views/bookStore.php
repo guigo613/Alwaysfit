@@ -25,8 +25,8 @@
                             </div>
                             <div class='col-6'>
                                 <div class='btn-group'>
-                                    <button type='button' class='btn btn-primary' onclick=\"location.search = '?route=logout'\">Gerenciar</button>
-                                    <button type='button' class='btn btn-primary' onclick=\"location.search = '?route=logout'\">Novo</button>
+                                    <button type='button' class='btn btn-primary' onclick=\"location.search = '?route=manager'\">Gerenciar</button>
+                                    <button type='button' class='btn btn-primary' onclick=\"location.search = '?route=newUser'\">Novo</button>
                                 </div>
                             </div>
                         </div>";
