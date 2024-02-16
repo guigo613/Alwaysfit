@@ -21,8 +21,14 @@
                     <label for="password" class="form-label">Senha</label>
                     <input required type="password" class="form-control" id="password" name="password">
                 </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
-                <button type="button" class="btn btn-outline-primary" onclick="location.search = '?route=book'">Sem login</button>
+                <div class="row">
+                    <div class="col-6">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                    <div class="col-6">
+                        <button type="button" class="btn btn-outline-primary" onclick="location.search = '?route=book'">Sem login</button>
+                    </div>
+                </div>
             </form>
         </div>
     </div>

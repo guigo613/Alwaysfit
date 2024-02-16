@@ -13,55 +13,64 @@
 
             $permission = in_array("permission", $_SESSION) ? $_SESSION["permission"] : false;
 
-            echo "<div class='row'>";
-            echo "<div class='col'><h1>Lista de Livros</h1></div>";
-            echo "<div class='col'><input class='form-control' id='search' placeholder='Buscar...'></div>";
+            echo "<div class='row'>
+                    <div class='col'><h1>Lista de Livros</h1></div>
+                    <div class='col'><input class='form-control' id='search' placeholder='Buscar...'></div>
+                    <div class='col-2 ms-auto'>";
+
             if ($permission) {
-                echo 
-                    "<div class='col-2 ms-auto'>
-                        <button type='button' class='btn btn-primary' onclick=\"location.search = '?route=logout'\">logout</button>
-                    </div>";
+            echo        "<div class='row'>
+                            <div class='col-6'>
+                                <button type='button' class='btn btn-primary' onclick=\"location.search = '?route=logout'\">logout</button>
+                            </div>
+                            <div class='col-6'>
+                                <div class='btn-group'>
+                                    <button type='button' class='btn btn-primary' onclick=\"location.search = '?route=logout'\">Gerenciar</button>
+                                    <button type='button' class='btn btn-primary' onclick=\"location.search = '?route=logout'\">Novo</button>
+                                </div>
+                            </div>
+                        </div>";
             } else {
-                echo
-                    "<div class='col ms-auto'>
-                        <button type='button' class='btn btn-primary' onclick=\"location.search = '?route=login'\">login</button>
-                    </div>";
+                echo    "<button type='button' class='btn btn-primary' onclick=\"location.search = '?route=login'\">login</button>";
             }
-            echo "</div>";
+            echo    "</div>
+                </div>";
             
-            echo "<div class='table-container'><table class='table table-striped'>";
-            echo 
-                "<thead>
-                    <tr>
-                        <th scope='col'>ID</th>
-                        <th scope='col'>Titulo</th>
-                        <th scope='col'>Autor</th>
-                        <th scope='col'>Ano de Lançamento</th>
-                        <th scope='col'>Ação</th>
-                    </tr>
-                </thead>";
-            echo "<tbody>";
+            echo "<div class='table-container'>
+                    <table class='table table-striped'>
+                        <thead>
+                            <tr>
+                                <th scope='col'>ID</th>
+                                <th scope='col'>Titulo</th>
+                                <th scope='col'>Autor</th>
+                                <th scope='col'>Ano de Lançamento</th>";
+
+            if ($permission) 
+                echo            "<th scope='col'>Ação</th>";
+
+            echo            "</tr>
+                        </thead>
+                        <tbody>";
             foreach ($books->inner as $key => $book) {
-                echo 
-                    "<tr>
-                        <th scope='row'>{$key}</th>
-                        <td>{$book->title}</td>
-                        <td>{$book->author}</td>
-                        <td>{$book->year}</td>
-                    ";
+                echo        "<tr>
+                                <th scope='row'>{$key}</th>
+                                <td>{$book->title}</td>
+                                <td>{$book->author}</td>
+                                <td>{$book->year}</td>";
 
                 if ($permission) {
-                    echo
-                        "<td>
-                            <form action='?route=removebook' method='post' style='display: inline; margin-left: 10px;'>
-                                <input type='hidden' name='book_id' value='{$key}'>
-                                <input type='submit' value='Remover'>
-                            </form>
-                        </td>";
+                    echo        "<td>
+                                    <form action='?route=removebook' method='post' style='display: inline; margin-left: 10px;'>
+                                        <input type='hidden' name='book_id' value='{$key}'>
+                                        <input type='submit' value='Remover'>
+                                    </form>
+                                </td>";
                 }
-                echo "</tr>";
+                echo        "</tr>";
             }
-            echo "</tbody></table></div>";
+            echo        "</tbody>
+                    </table>
+                </div>";
 
             
             if ($permission)
